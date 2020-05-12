@@ -4,12 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.map_pins.data.repository.PinRepository
 
-class AddPinViewModelFactory (
+class ProfileViewModelFactory (
     private  val pinRepository: PinRepository
 ) :ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel> create(modelClass: Class<T>) : T {
-        return AddPinViewModel(
+        return ProfileViewModel(
             pinRepository
         ) as T
     }

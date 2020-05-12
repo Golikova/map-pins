@@ -2,9 +2,11 @@
 <resources>
     <color name="colorMedium">#D3E3FC</color>
     <color name="colorPrimary">#D3E3FC</color>
-    <color name="colorLight">#FBCBBB</color>
+    <color name="colorLight">#E4FFEBE4</color>
+    <color name="colorLightGrey">#EEEFEFEF</color>
     <color name="colorPrimaryGreen">#358879</color>
     <color name="colorAccent">#75A6F4</color>
     <color name="colorAccentDark">#3F51B5</color>
     <color name="colorWhite">#FCFCFB</color>
+    <color name="colorTextPrimary">#8D2A2A2A</color>
 </resources>

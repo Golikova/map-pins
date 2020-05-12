@@ -1,28 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:background="@color/colorMedium"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="230dp"
     android:clipChildren="false"
     android:padding="24dp"
     android:gravity="center"
     android:clipToPadding="false">
 
-    <TextView
-        android:id="@+id/rotationHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="РАБОТАЕТ!!!"
-        android:textAlignment="center"
-        android:padding="8dp"/>
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical"
+         android:background="@drawable/ar_holder">
+         
+         <TextView
+             android:id="@+id/ar_date"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="01-01-2020"
+             android:textAlignment="center"
+             android:padding="8dp"/>
 
-    <ImageButton
-        android:src="@android:drawable/ic_dialog_info"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:importantForAccessibility="no"
-        android:id="@+id/info_button"/>
+         <TextView
+             android:id="@+id/ar_title"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Title"
+             android:textSize="15sp"
+             android:textAlignment="center"
+             android:padding="8dp"/>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
+
+
+             <ImageView
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:id="@+id/ar_image"
+                 android:src="@drawable/ic_mobile"/>
+
+             <TextView
+                 android:id="@+id/ar_description"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="Description"
+                 android:textAlignment="center"
+                 android:padding="8dp"/>
+
+         </LinearLayout>
+
+     </LinearLayout>
+
 
 </LinearLayout>
