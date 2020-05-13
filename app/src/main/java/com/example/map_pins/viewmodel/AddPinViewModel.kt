@@ -26,9 +26,9 @@ class AddPinViewModel(
     var title: String = ""
     var description: String = ""
 
-    var datePicker: Int = 0
-    var monthPicker: Int = 0
-    var yearPicker: Int = 0
+    var datePicker: String = ""
+    var monthPicker: String = ""
+    var yearPicker: String = ""
 
     var imageUri: Uri? = null
     var augmUri: Uri? = null
@@ -85,9 +85,18 @@ class AddPinViewModel(
         monthOfYear: Int,
         dayOfMonth: Int
     ) {
-        Log.d("MyTag", year.toString()+monthOfYear+dayOfMonth)
-        datePicker = dayOfMonth
-        monthPicker = monthOfYear
-        yearPicker = year
+
+        yearPicker = year.toString()
+        if(monthOfYear < 10){
+            monthPicker = "0$monthOfYear";
+        } else{
+            monthPicker = monthOfYear.toString();
+
+        }
+        if(dayOfMonth < 10){
+            datePicker  = "0$dayOfMonth";
+        } else {
+            datePicker = dayOfMonth.toString()
+        }
     }
 }

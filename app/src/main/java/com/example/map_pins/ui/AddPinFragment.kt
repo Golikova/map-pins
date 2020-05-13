@@ -32,13 +32,9 @@ import java.io.File
 class AddPinFragment : Fragment() {
 
     lateinit var binding : FragmentAddPinBinding
+
     private val PICK_IMAGE = 100
     private val PICK_AUGM = 101
-    private val REQUEST_EXTERNAL_STORAGE = 1
-    private val PERMISSIONS_STORAGE = arrayOf(
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater,

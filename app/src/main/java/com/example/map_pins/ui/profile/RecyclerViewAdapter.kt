@@ -2,6 +2,7 @@ package com.example.map_pins.ui.profile
 
 import android.app.Application
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.database.Cursor
 import android.graphics.Bitmap
@@ -10,6 +11,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.map_pins.data.model.Pin
@@ -24,6 +26,7 @@ import java.io.File
 class RecyclerViewAdapter(private var items: List<Pin>,
                           private var pinRepository: PinRepository,
                           private var listener: OnItemClickListener,
+                          private var itemClickListener: PinListener,
                           private var context: Context
 )
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -45,7 +48,7 @@ class RecyclerViewAdapter(private var items: List<Pin>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position], listener)
+        holder.bind(items[position], listener, itemClickListener)
     }
 
     override fun getItemCount(): Int = items.size
@@ -61,7 +64,7 @@ class RecyclerViewAdapter(private var items: List<Pin>,
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(pin: Pin, listener: OnItemClickListener?) {
+        fun bind(pin: Pin, listener: OnItemClickListener?, itemClickListener: PinListener) {
             binding.pin = pin
 
             var image = pinRepository.getImageByPinId(pin)
@@ -71,8 +74,9 @@ class RecyclerViewAdapter(private var items: List<Pin>,
 
             if (listener != null) {
                 binding.root.setOnClickListener({ _ -> listener.onItemClick(layoutPosition) })
-            }
-
+                itemView.delete_btn.setOnClickListener { itemClickListener.onDeleteClick(it, pin)}
+                itemView.edit_btn.setOnClickListener { itemClickListener.onEditClick(it, pin)}
+                }
             binding.executePendingBindings()
         }
 

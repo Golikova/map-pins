@@ -20,6 +20,9 @@ interface PinDAO {
     @Query("Select * from pin where augmentedImage like :name")
     fun getPinByAugmentedImage(name: String) : List<Pin>
 
+    @Query("Select * from pin where pinId like :id")
+    fun getPinById(id: Long) : Pin
+
     @Query("DELETE FROM pin")
     fun deleteAllPins()
 

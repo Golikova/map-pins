@@ -1,35 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
-            name="viewmodel"
-            type="com.example.map_pins.viewmodel.AddPinViewModel" />
+            name="pin"
+            type="com.example.map_pins.data.model.Pin" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="12dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12px"
-            android:layout_marginTop="32dp"
-            android:fontFamily="casual"
-            android:text="новое место"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorAccentDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
@@ -48,13 +32,14 @@
             app:counterMaxLength="30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            >
 
             <EditText
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:afterTextChanged="@{viewmodel.afterTitleTextChanged}" />
+                android:layout_height="wrap_content"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -79,8 +64,7 @@
             <EditText
                 android:id="@+id/description"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:afterTextChanged="@{viewmodel.afterDescriptionTextChanged}" />
+                android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,10 +77,9 @@
             android:layout_marginEnd="12dp"
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
-            android:onDateChanged="@{viewmodel.onDateChanged}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -122,16 +105,16 @@
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Добавтить фото"
-                    app:icon="@drawable/ic_plus" />
+                    android:text="Изменить фото"
+                    app:icon="@drawable/ic_edit_24px" />
 
                 <Button
                     android:id="@+id/btn_choose_augmented"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Добавтить опорное изображене"
-                    app:icon="@drawable/ic_plus" />
+                    android:text="Изменить опорное изображене"
+                    app:icon="@drawable/ic_edit_24px" />
 
             </LinearLayout>
 
@@ -165,16 +148,25 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
             android:layout_marginTop="24dp"
-            android:onClick="@{viewmodel.onSaveBtnClick}"
             android:text="Сохранить"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="36dp"
+            android:layout_marginTop="24dp"
+            android:text="Отмена"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </layout>

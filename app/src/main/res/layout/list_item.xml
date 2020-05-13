@@ -7,6 +7,10 @@
             name="pin"
             type="com.example.map_pins.data.model.Pin" />
 
+        <variable
+            name="viewmodel"
+            type="com.example.map_pins.viewmodel.ProfileViewModel" />
+
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -76,14 +80,16 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/edit_btn"
                         style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="36dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
                         android:text=""
                         app:icon="@drawable/ic_edit_24px" />
                     <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
+                        android:id="@+id/delete_btn"
+                        android:layout_width="36dp"
                         android:layout_height="wrap_content"
                         app:icon="@drawable/ic_delete_outline_24px"
                         android:text=""

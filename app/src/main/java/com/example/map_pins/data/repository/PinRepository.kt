@@ -16,6 +16,7 @@ class PinRepository (
     fun getAllPins() = db.getPinDao().getAllPins()
     fun getAllAugmentedPicks() = db.getPinDao().getAllAugmentedPicks()
     fun getPinByAugmentedImage(name: String) = db.getPinDao().getPinByAugmentedImage(name)
+    fun getPinById(pin: Pin) = db.getPinDao().getPinById(pin.pinId)
     fun addPin(pin : Pin) = db.getPinDao().upsert(pin)
     fun updatePin(pin : Pin) = db.getPinDao().upsert(pin)
     fun getAllPinsWithImages() = db.getPinDao().getPinsWithImages()
